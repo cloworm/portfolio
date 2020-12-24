@@ -1,4 +1,6 @@
-const Worm = () => {
+import React, { ReactElement } from 'react'
+
+const Worm = (): ReactElement => {
   return <div></div>
 }
 

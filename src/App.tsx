@@ -1,7 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactElement } from 'react'
 
-const App = () => {
+import logo from './logo.svg'
+import './App.css'
+
+const App = (): ReactElement => {
   return (
     <div className="App">
       <header className="App-header">
@@ -19,7 +21,7 @@ const App = () => {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
