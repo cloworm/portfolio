@@ -23,7 +23,7 @@ const Projects = (): ReactElement => {
     <div className="bg-gray-50">
       <div className="px-20 py-10">
         <h2 className="text-3xl font-extralight tracking-widest pb-12">
-        PROJECTS
+        PROJECT SHOWCASE
         </h2>
         {
           projects.map((project) => <Card key={project.name} project={project} />)

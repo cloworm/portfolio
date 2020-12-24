@@ -1,6 +1,8 @@
 import React, { ReactElement } from 'react'
 
 import Project from './types/project.type'
+import Chip from './chip'
+import ButtonLink from './button-link'
 
 interface Props {
   project: Project
@@ -21,23 +23,14 @@ const Card = ({ project }: Props): ReactElement => {
         </p>
         {project.tags.map((tag, idx) => {
           return (
-            <div
-              key={`${project.name}-${idx}`}
-              className="rounded-full bg-theme_periwinkle text-sm inline-block px-7 py-1 mr-1 mb-1"
-            >
-              {tag}
-            </div>
+            <Chip key={`${project.name}-${idx}`}>{tag}</Chip>
           )
         })}
       </div>
 
       <div className="bg-gray-300 rounded-r-xl">
-        <a href={project.repo}>
-          GitHub
-        </a>
-        <a href={project.link}>
-          Live Demo
-        </a>
+        <ButtonLink url={project.repo}>GitHub</ButtonLink>
+        <ButtonLink url={project.link}>Live Demo</ButtonLink>
       </div>
     </div>
   )
