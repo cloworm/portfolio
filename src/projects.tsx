@@ -13,11 +13,29 @@ const Projects = (): ReactElement => {
         'React',
         'Next.js',
         'Vercel',
-        'Tailwind CSS'
+        'Tailwind CSS',
+        'responsive',
       ],
       repo: 'https://github.com/cloworm/countdown',
       link: 'https://countdown.cloworm.vercel.app/',
-    }
+      bg: 'countdown',
+    },
+    {
+      year: 2020,
+      name: 'Todo App',
+      description: 'Todo App with sortable items and light/dark mode',
+      tags: [
+        'React',
+        'Next.js',
+        'Netlify',
+        'Tailwind CSS',
+        'Framer Motion',
+        'responsive',
+      ],
+      repo: 'https://github.com/cloworm/todo',
+      link: 'https://cloworm-todo.netlify.app/',
+      bg: 'todo',
+    },
   ])
   return (
     <div className="bg-gray-50">
@@ -26,7 +44,7 @@ const Projects = (): ReactElement => {
         PROJECT SHOWCASE
         </h2>
         {
-          projects.map((project) => <Card key={project.name} project={project} />)
+          projects.map((project, idx) => <Card key={project.name} project={project} flipped={idx % 2 !== 0} />)
         }
       </div>
     </div>
