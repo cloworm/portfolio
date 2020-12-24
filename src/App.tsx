@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 
 import logo from './logo.svg'
-import './App.css'
+import './app.css'
 
 const App = (): ReactElement => {
   return (
