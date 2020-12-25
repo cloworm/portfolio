@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react'
 
 import Projects from './projects'
-import linkedinLogo from './linkedin.svg'
-import githubLogo from './github.svg'
+import Worm from './worm'
 
 const App = (): ReactElement => {
   return (
@@ -28,6 +27,8 @@ const App = (): ReactElement => {
           </div>
         </div>
       </header>
+
+      <Worm />
 
       <Projects />
     </div>
