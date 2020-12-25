@@ -11,29 +11,34 @@ interface Props {
 
 const Card = ({ project, flipped }: Props): ReactElement => {
   return (
-    <div className="rounded-xl shadow-lg text-left grid grid-cols-2 mb-10">
-      <div className={`${flipped ? 'order-1' : ''} px-8 py-8`}>
+    <div className="relative rounded-xl group hover:border-transparent hover:shadow-lg shadow transition-all text-left grid grid-cols-2 mb-10">
+      <div className={`${flipped ? 'order-1 rounded-r-xl' : 'rounded-l-xl'} px-8 py-8 bg-white`}>
         <p className="text-sm font-semibold text-theme_pink">
           {project.year}
         </p>
-        <p className="text-3xl font-bold pb-3 tracking-wide">
-          {project.name}
-        </p>
-        <p className="pb-6 text-sm">
+        <div className="pb-3">
+          <div className="float-right space-x-2">
+            <ButtonLink url={project.repo}>Source</ButtonLink>
+            <ButtonLink url={project.link}>Demo</ButtonLink>
+          </div>
+          <p className="text-2xl font-bold tracking-wide align-center">
+            {project.name}
+          </p>
+        </div>
+        <p className="pb-10 text-sm">
           {project.description}
         </p>
         {project.tags.map((tag, idx) => {
           return (
-            <Chip key={`${project.name}-${idx}`}>{tag}</Chip>
+            <div key={`${project.name}-div${idx}`} className="inline-block">
+              <Chip key={`${project.name}-${idx}`}>{tag}</Chip>
+            </div>
           )
         })}
+
       </div>
 
-      <div className={`bg-${project.bg} bg-cover ${flipped ? 'rounded-l-xl' : 'rounded-r-xl'} flex justify-center`}>
-        <div className="self-end pb-4 space-x-1">
-          <ButtonLink url={project.repo}>GitHub</ButtonLink>
-          <ButtonLink url={project.link}>Live Demo</ButtonLink>
-        </div>
+      <div className={`bg-${project.bg} bg-cover ${project.bgPosition ? project.bgPosition : 'bg-left-top'} bg-no-repeat ${flipped ? 'rounded-l-xl' : 'rounded-r-xl'} flex justify-center`}>
       </div>
     </div>
   )

@@ -6,4 +6,5 @@ export default interface Project {
   repo: string
   link: string
   bg: string
+  bgPosition?: string
 }

@@ -7,7 +7,7 @@ interface Props {
 
 const ButtonLink = ({ children, url }: Props): ReactElement => {
   return (
-    <a className="cursor-pointer rounded bg-theme_indigo text-white hover:bg-theme_yellow hover:text-black text-sm inline-block px-7 py-1" role="button" href={url} target="_blank" rel="noopener noreferrer">
+    <a href={url} target="_blank" rel="noopener noreferrer" className="border border-gray-500 hover:bg-theme_pink rounded font-medium text-sm italic text-gray-900 align-bottom px-2 py-0.5">
       {children}
     </a>
   )

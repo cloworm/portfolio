@@ -4,8 +4,8 @@ import Projects from './projects'
 
 const App = (): ReactElement => {
   return (
-    <div className="min-h-screen text-center">
-      <header>
+    <div>
+      <header className="min-h-screen flex justify-center items-center text-center">
         <h1 className="text-8xl">Hello</h1>
       </header>
       <Projects/>
