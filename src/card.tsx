@@ -45,14 +45,15 @@ const Card = ({
   const uriFriendlyName = useMemo<string>(() => encodeURIComponent(name), [name])
   const isExpanded = useMemo<boolean>(() => expandedCard === uriFriendlyName, [expandedCard, uriFriendlyName])
   const handleClick = useCallback(() => {
-    if (isExpanded) {
-      setExpandedCard(null)
-    } else {
-      // TODO: Smooth scroll
-      window.location.hash = uriFriendlyName
-      setExpandedCard(uriFriendlyName)
-    }
-  }, [isExpanded, uriFriendlyName, setExpandedCard])
+    setExpandedCard((prevExpandedCard) => {
+      const nextExpandedCard = prevExpandedCard === uriFriendlyName ? null : uriFriendlyName
+      if (nextExpandedCard) {
+        // TODO: Smooth scroll
+        window.location.hash = uriFriendlyName
+      }
+      return nextExpandedCard
+    })
+  }, [uriFriendlyName, setExpandedCard])
 
   return (
     <div

@@ -4,14 +4,14 @@ import {
   SetterOrUpdater
 } from 'recoil'
 
-type State = string|null
+type ExpandedCardState = string|null
 
-const expandedCardState = atom<State>({
+const expandedCardState = atom<ExpandedCardState>({
   key: 'expandedCardState',
   default: null,
 })
 
-const useExpandedCard = (): [State, SetterOrUpdater<State>] => {
+const useExpandedCard = (): [ExpandedCardState, SetterOrUpdater<ExpandedCardState>] => {
   return useRecoilState(expandedCardState)
 }
 
