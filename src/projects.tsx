@@ -19,7 +19,6 @@ const Projects = (): ReactElement => {
       ],
       repo: 'https://github.com/cloworm/countdown',
       link: 'https://countdown.cloworm.vercel.app/',
-      bg: 'countdown',
       bgPosition: 'bg-center',
       bgImage: 'url(\'https://user-images.githubusercontent.com/5566310/103051331-942dae80-4564-11eb-8d6e-7b757d03e8c8.png\')',
     },
@@ -39,7 +38,6 @@ const Projects = (): ReactElement => {
       ],
       repo: 'https://github.com/cloworm/todo',
       link: 'https://cloworm-todo.netlify.app/',
-      bg: 'todo',
       bgPosition: 'bg-center',
       bgImage: 'url(\'https://user-images.githubusercontent.com/5566310/102437990-7c48ae80-3fe9-11eb-8bf1-ef0ae5b72767.png\')'
     },
@@ -59,7 +57,6 @@ const Projects = (): ReactElement => {
       ],
       repo: 'https://github.com/cloworm/shortly',
       link: 'https://shortly.cloworm.vercel.app/',
-      bg: 'shortly',
       bgImage: 'url(\'https://user-images.githubusercontent.com/5566310/102733370-25a1e400-430b-11eb-9bb4-852053c4fb4c.png\')'
     },
     {
@@ -77,7 +74,6 @@ const Projects = (): ReactElement => {
       ],
       repo: 'https://github.com/yuyingliu331/deco',
       link: 'https://www.youtube.com/watch?v=b7y7sqlsfZ8',
-      bg: 'deco',
       bgPosition: 'bg-center',
       bgImage: 'url(\'https://user-images.githubusercontent.com/5566310/103108017-cd702800-4611-11eb-8da0-bf617623839b.png\')'
     },
@@ -93,7 +89,6 @@ const Projects = (): ReactElement => {
       ],
       repo: 'https://github.com/cloworm/regex-playground',
       link: 'http://regex-playground.cloworm.com/',
-      bg: 'regex',
       bgImage: 'url(\'https://user-images.githubusercontent.com/5566310/103107945-17a4d980-4611-11eb-9fba-d70261ed555a.png\')'
     },
   ])

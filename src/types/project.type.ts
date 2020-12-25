@@ -5,7 +5,6 @@ export default interface Project {
   tags: string[]
   repo: string
   link: string
-  bg: string
+  bgImage: string
   bgPosition?: string
-  bgImage?: string
 }
