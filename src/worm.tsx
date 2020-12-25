@@ -11,7 +11,6 @@ const Worm = (): ReactElement => {
   const length = 35
 
   useEffect(() => {
-    console.log('Paper.view is', Paper.view)
     if (!Paper || !Paper.view) return
     return Paper.view.remove()
   }, [])
@@ -26,27 +25,28 @@ const Worm = (): ReactElement => {
       current.add(start.add(new Point(i * length, 0)))
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Paper.view.onMouseMove = (event: any) => {
       if (!pathRef.current) return
 
       pathRef.current.firstSegment.point = event.point
       for (let i = 0; i < points - 1; i++) {
-        const segment: any = pathRef.current.segments[i]
+        const segment = pathRef.current.segments[i]
         const nextSegment = segment.next
-        const vector: any = segment.point.subtract(nextSegment.point)
+        const vector = segment.point.subtract(nextSegment.point)
         vector.length = length
         nextSegment.point = segment.point.subtract(vector)
       }
       pathRef.current.smooth({ type: 'continuous' })
     }
 
-    Paper.view.onMouseDown = (event: any) => {
+    Paper.view.onMouseDown = () => {
       if (!pathRef.current) return
       pathRef.current.fullySelected = true
       pathRef.current.strokeColor = new Color(getRandomColor())
     }
 
-    Paper.view.onMouseUp = (event: any) => {
+    Paper.view.onMouseUp = () => {
       if (!pathRef.current) return
       pathRef.current.fullySelected = false
     }
@@ -54,7 +54,6 @@ const Worm = (): ReactElement => {
 
   const setCanvasRef = useCallback(node => {
     if (node !== null) {
-      console.log('node', node)
       Paper.setup(node)
       pathRef.current = new Path({
         strokeColor: getRandomColor(),

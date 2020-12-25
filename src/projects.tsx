@@ -87,14 +87,14 @@ const Projects = (): ReactElement => {
         'Express',
         'Material UI',
       ],
-      repo: 'https://github.com/yuyingliu331/deco',
+      repo: 'https://github.com/cloworm/regex-playground',
       link: 'http://regex-playground.cloworm.com/',
       bg: 'regex',
     },
   ])
   return (
     <div className="bg-gradient-to-b from-theme_lilac to-theme_periwinkle flex justify-center">
-      <div className="px-4 md:px-10 lg:px-20 xl:w-1/2 py-10">
+      <div className="px-4 md:px-10 lg:px-20 xl:w-1/2 py-20">
         <h2 className="text-3xl font-extralight tracking-widest pb-12 text-center">
           PROJECT SHOWCASE
         </h2>
