@@ -1,7 +1,8 @@
-import React, { ReactElement, useMemo, useState } from 'react'
+import React, { ReactElement, useCallback, useMemo } from 'react'
 
 import Chip from './chip'
 import ButtonLink from './button-link'
+import useExpandedCard from './hooks/useExpandedCard'
 
 interface Props {
   year: number
@@ -13,7 +14,6 @@ interface Props {
   bgPosition?: string
   flipped: boolean
   tags: string[],
-  expanded?: boolean,
 }
 
 const Tags = ({ tags }: { tags: string[] }): ReactElement => {
@@ -41,8 +41,18 @@ const Card = ({
   flipped,
   tags,
 }: Props): ReactElement => {
-  const [expanded, setExpanded] = useState<boolean>(false)
+  const [expandedCard, setExpandedCard] = useExpandedCard()
   const uriFriendlyName = useMemo<string>(() => encodeURIComponent(name), [name])
+  const isExpanded = useMemo<boolean>(() => expandedCard === uriFriendlyName, [expandedCard, uriFriendlyName])
+  const handleClick = useCallback(() => {
+    if (isExpanded) {
+      setExpandedCard(null)
+    } else {
+      // TODO: Smooth scroll
+      window.location.hash = uriFriendlyName
+      setExpandedCard(uriFriendlyName)
+    }
+  }, [isExpanded, uriFriendlyName, setExpandedCard])
 
   return (
     <div
@@ -59,17 +69,10 @@ const Card = ({
         mb-10
         transform
         cursor-pointer
-        ${expanded ? '' : 'hover:scale-105 hover:border-transparent hover:shadow-xl' }
-        ${expanded ? 'scale-110 shadow-xl' : '' }
+        ${isExpanded ? '' : 'hover:scale-105 hover:border-transparent hover:shadow-xl' }
+        ${isExpanded ? 'scale-110 shadow-xl' : '' }
       `}
-      onClick={() => {
-        setExpanded((expanded) => {
-          const nextExpanded = !expanded
-          // TODO: Smoothscroll
-          if (nextExpanded) window.location.hash = uriFriendlyName
-          return nextExpanded
-        })
-      }}
+      onClick={handleClick}
     >
       <div className={`${flipped ? 'order-first lg:order-1 rounded-t-xl lg:rounded-t-none lg:rounded-r-xl' : 'order-first rounded-t-xl lg:rounded-t-none lg:rounded-l-xl'} px-6 py-6 lg:px-8 lg:py-8 bg-white`}>
         <p className="text-sm font-semibold text-theme_pink">
