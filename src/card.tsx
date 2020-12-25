@@ -28,7 +28,7 @@ const Card = ({
 }: Props): ReactElement => {
   return (
     <div className="relative rounded-xl group hover:border-transparent hover:shadow-xl shadow transition-all text-left grid lg:grid-cols-2 mb-10 transform hover:scale-105">
-      <div className={`${flipped ? 'lg:order-1 lg:rounded-r-xl' : 'lg:rounded-l-xl'} px-8 py-8 bg-white`}>
+      <div className={`${flipped ? 'order-first lg:order-1 rounded-t-xl lg:rounded-t-none lg:rounded-r-xl' : 'order-first rounded-t-xl lg:rounded-t-none lg:rounded-l-xl'} px-6 py-6 lg:px-8 lg:py-8 bg-white`}>
         <p className="text-sm font-semibold text-theme_pink">
           {year}
         </p>
@@ -41,9 +41,25 @@ const Card = ({
             {name}
           </p>
         </div>
-        <p className="pb-10 text-sm">
+
+        <p className="lg:pb-10 text-sm">
           {description}
         </p>
+        <div className="hidden lg:block">
+          {tags.map((tag, idx) => {
+            return (
+              <div key={`${name}-div${idx}`} className="inline-block">
+                <Chip key={`${name}-${idx}`}>{tag}</Chip>
+              </div>
+            )
+          })}
+        </div>
+
+      </div>
+
+      <div style={{ backgroundImage: bgImage }} className={`bg-cover ${bgPosition ? bgPosition : 'bg-left-top'} bg-no-repeat ${flipped ? 'lg:rounded-l-xl' : 'lg:rounded-r-xl'} flex justify-center border-l-4 border-r-4 lg:border-4 border-white h-40 lg:h-auto`}>
+      </div>
+      <div className="lg:hidden bg-white rounded-b-xl px-6 py-6">
         {tags.map((tag, idx) => {
           return (
             <div key={`${name}-div${idx}`} className="inline-block">
@@ -52,8 +68,6 @@ const Card = ({
           )
         })}
       </div>
-
-      <div style={{ backgroundImage: bgImage }} className={`bg-cover ${bgPosition ? bgPosition : 'bg-left-top'} bg-no-repeat ${flipped ? 'rounded-l-xl' : 'rounded-r-xl'} flex justify-center border-4 border-white h-40`} />
     </div>
   )
 }
