@@ -56,7 +56,6 @@ const Worm = (): ReactElement => {
   const setCanvasRef = useCallback(node => {
     if (node !== null) {
       Paper.setup(node)
-      Paper.project.view.update()
       pathRef.current = new Path({
         strokeColor: getRandomColor(),
         strokeWidth: 20,
