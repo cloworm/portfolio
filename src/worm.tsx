@@ -69,7 +69,7 @@ const Worm = (): ReactElement => {
 
   return (
     <div className="min-h-screen">
-      <canvas className="w-full min-h-screen" ref={setCanvasRef} id="canvas" />
+      <canvas className="w-full min-h-screen" ref={setCanvasRef} id="canvas" data-paper-resize />
     </div>
   )
 }

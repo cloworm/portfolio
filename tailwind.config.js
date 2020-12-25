@@ -22,6 +22,9 @@ module.exports = {
         theme_pink: '#febebe',
         theme_lilac: '#afb2f1',
         theme_periwinkle: '#a9cafd'
+      },
+      zIndex: {
+        '-1': '-1'
       }
     },
   },
