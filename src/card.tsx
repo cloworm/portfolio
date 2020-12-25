@@ -38,7 +38,7 @@ const Card = ({ project, flipped }: Props): ReactElement => {
 
       </div>
 
-      <div className={`bg-${project.bg} bg-cover ${project.bgPosition ? project.bgPosition : 'bg-left-top'} bg-no-repeat ${flipped ? 'rounded-l-xl' : 'rounded-r-xl'} flex justify-center border-4 border-white`}>
+      <div style={{ backgroundImage: project.bgImage }} className={`bg-cover ${project.bgPosition ? project.bgPosition : 'bg-left-top'} bg-no-repeat ${flipped ? 'rounded-l-xl' : 'rounded-r-xl'} flex justify-center border-4 border-white`}>
       </div>
     </div>
   )

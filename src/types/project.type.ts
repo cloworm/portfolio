@@ -7,4 +7,5 @@ export default interface Project {
   link: string
   bg: string
   bgPosition?: string
+  bgImage?: string
 }
