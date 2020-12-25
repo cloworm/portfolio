@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useMemo, useState } from 'react'
 
 import Chip from './chip'
 import ButtonLink from './button-link'
@@ -40,10 +40,37 @@ const Card = ({
   bgPosition,
   flipped,
   tags,
-  expanded,
 }: Props): ReactElement => {
+  const [expanded, setExpanded] = useState<boolean>(false)
+  const uriFriendlyName = useMemo<string>(() => encodeURIComponent(name), [name])
+
   return (
-    <div className="relative rounded-xl group hover:border-transparent hover:shadow-xl shadow transition-all text-left grid lg:grid-cols-2 mb-10 transform hover:scale-105">
+    <div
+      id={uriFriendlyName}
+      className={`
+        grid
+        relative
+        rounded-xl
+        group
+        shadow
+        transition-all
+        text-left
+        lg:grid-cols-2
+        mb-10
+        transform
+        cursor-pointer
+        ${expanded ? '' : 'hover:scale-105 hover:border-transparent hover:shadow-xl' }
+        ${expanded ? 'scale-110 shadow-xl' : '' }
+      `}
+      onClick={() => {
+        setExpanded((expanded) => {
+          const nextExpanded = !expanded
+          // TODO: Smoothscroll
+          if (nextExpanded) window.location.hash = uriFriendlyName
+          return nextExpanded
+        })
+      }}
+    >
       <div className={`${flipped ? 'order-first lg:order-1 rounded-t-xl lg:rounded-t-none lg:rounded-r-xl' : 'order-first rounded-t-xl lg:rounded-t-none lg:rounded-l-xl'} px-6 py-6 lg:px-8 lg:py-8 bg-white`}>
         <p className="text-sm font-semibold text-theme_pink">
           {year}
