@@ -12,7 +12,22 @@ interface Props {
   bgImage: string
   bgPosition?: string
   flipped: boolean
-  tags: string[]
+  tags: string[],
+  expanded?: boolean,
+}
+
+const Tags = ({ tags }: { tags: string[] }): ReactElement => {
+  return <>
+    {
+      tags.map((tag, idx) => {
+        return (
+          <div key={idx} className="inline-block">
+            <Chip>{tag}</Chip>
+          </div>
+        )
+      })
+    }
+  </>
 }
 
 const Card = ({
@@ -25,6 +40,7 @@ const Card = ({
   bgPosition,
   flipped,
   tags,
+  expanded,
 }: Props): ReactElement => {
   return (
     <div className="relative rounded-xl group hover:border-transparent hover:shadow-xl shadow transition-all text-left grid lg:grid-cols-2 mb-10 transform hover:scale-105">
@@ -46,27 +62,25 @@ const Card = ({
           {description}
         </p>
         <div className="hidden lg:block">
-          {tags.map((tag, idx) => {
-            return (
-              <div key={`${name}-div${idx}`} className="inline-block">
-                <Chip key={`${name}-${idx}`}>{tag}</Chip>
-              </div>
-            )
-          })}
+          <Tags tags={tags} />
         </div>
 
       </div>
 
-      <div style={{ backgroundImage: bgImage }} className={`bg-cover ${bgPosition ? bgPosition : 'bg-left-top'} bg-no-repeat ${flipped ? 'lg:rounded-l-xl' : 'lg:rounded-r-xl'} flex justify-center border-l-4 border-r-4 lg:border-4 border-white h-40 lg:h-auto`}>
-      </div>
+      <div
+        style={{ backgroundImage: bgImage }}
+        className={`
+          bg-cover
+          ${bgPosition ? bgPosition : 'bg-left-top'}
+          bg-no-repeat
+          ${flipped ? 'lg:rounded-l-xl' : 'lg:rounded-r-xl'}
+          flex justify-center
+          border-l-4 border-r-4 lg:border-4 border-white
+          h-40 lg:h-auto
+        `}
+      />
       <div className="lg:hidden bg-white rounded-b-xl px-6 py-6">
-        {tags.map((tag, idx) => {
-          return (
-            <div key={`${name}-div${idx}`} className="inline-block">
-              <Chip key={`${name}-${idx}`}>{tag}</Chip>
-            </div>
-          )
-        })}
+        <Tags tags={tags} />
       </div>
     </div>
   )
