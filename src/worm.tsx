@@ -56,6 +56,7 @@ const Worm = (): ReactElement => {
   const setCanvasRef = useCallback(node => {
     if (node !== null) {
       Paper.setup(node)
+      Paper.project.view.update()
       pathRef.current = new Path({
         strokeColor: getRandomColor(),
         strokeWidth: 20,
@@ -68,8 +69,8 @@ const Worm = (): ReactElement => {
   if (!isMounted) return <div></div>
 
   return (
-    <div className="min-h-screen">
-      <canvas className="w-full h-screen" ref={setCanvasRef} id="canvas" />
+    <div className="h-screen">
+      <canvas className="h-screen w-full" ref={setCanvasRef} id="canvas" />
     </div>
   )
 }
