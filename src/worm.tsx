@@ -44,7 +44,8 @@ const Worm = (): ReactElement => {
     Paper.view.onMouseDown = () => {
       if (!pathRef.current) return
       pathRef.current.fullySelected = true
-      pathRef.current.strokeColor = new Color(getRandomColor())
+      pathRef.current.strokeColor = new Color('#F9ABCE')
+      // pathRef.current.strokeColor = new Color(getRandomColor())
     }
 
     Paper.view.onMouseUp = () => {
@@ -57,7 +58,8 @@ const Worm = (): ReactElement => {
     if (node !== null) {
       Paper.setup(node)
       pathRef.current = new Path({
-        strokeColor: getRandomColor(),
+        // strokeColor: getRandomColor(),
+        strokeColor: new Color('#F9ABCE'),
         strokeWidth: 20,
         strokeCap: 'round'
       })
@@ -68,7 +70,7 @@ const Worm = (): ReactElement => {
   if (!isMounted) return <div></div>
 
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-gradient-to-b from-theme_oceanBlue to-theme_mediumPurple">
       <canvas className="h-screen w-full canvas-resize" ref={setCanvasRef} id="canvas" data-paper-resize="true" />
     </div>
   )

@@ -14,12 +14,24 @@ module.exports = {
         theme_yellow: '#fed230',
         theme_pink: '#febebe',
         theme_lilac: '#afb2f1',
-        theme_periwinkle: '#a9cafd'
+        theme_periwinkle: '#a9cafd',
+        theme_oceanBlue: '#5C30C9',
+        theme_mediumPurple: '#AC70EA',
+        theme_lavenderWeb: '#E9E7FD',
+        theme_skyBlueCrayola: '#75DEF6',
+        theme_pacificBlue: '#59AAB9',
+        theme_aquamarine: '#78EED0',
+        theme_frenchPink: '#FF6194',
+        theme_carnationPink: '#F9ABCE',
+        theme_lavenderBlush: '#F8E5EF',
+        theme_ghostWhite: '#F8F8FD'
       },
     },
   },
   variants: {
     extend: {
+      backgroundClip: ['hover'],
+      backgroundImage: ['hover'],
       rotate: ['group-hover']
     },
   },
@@ -37,6 +49,9 @@ module.exports = {
             width: '100%',
             height: '100%'
           }
+        },
+        '.clip-ellipse': {
+          clipPath: 'ellipse(53% 100% at 50% 129%)'
         }
       }
 
