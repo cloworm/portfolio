@@ -1,12 +1,20 @@
-import React, { ReactElement, useCallback, useEffect, useRef } from 'react'
-import Paper, { Path, Point, Color, Gradient } from 'paper'
+import React, { FunctionComponent, useCallback, useEffect, useRef } from 'react'
+import Paper, { Path, Point, Color, Gradient, GradientStop } from 'paper'
 
 import useIsMounted from './hooks/useIsMounted'
-import getRandomColor from './lib/getRandomColor'
 
-const Worm = (): ReactElement => {
+interface Props {
+  light: string
+  dark: string
+}
+
+const Worm: FunctionComponent<Props> = ({ light = '#F8E5EF', dark = '#F9ABCE' }) => {
   const isMounted = useIsMounted()
-  const pathRef = useRef<InstanceType<typeof Path>>()
+  // const pathRef = useRef<InstanceType<typeof Path>>()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const pathRef = useRef<any>()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const canvasRef = useRef<any>()
   const points = 25
   const length = 35
 
@@ -14,6 +22,23 @@ const Worm = (): ReactElement => {
     if (!Paper?.view) return
     return () => { Paper.view.remove() }
   }, [])
+
+  useEffect(() => {
+    if (!pathRef?.current && !canvasRef?.current) return
+
+    const gradient = new Gradient()
+    gradient.stops = [
+      new GradientStop(new Color(light)),
+      new GradientStop(new Color(dark))
+    ]
+
+    pathRef.current.strokeColor = {
+      gradient,
+      origin: [0, canvasRef.current.width],
+      destination: [0, 0]
+    }
+
+  }, [light, dark])
 
   const draw = useCallback(() => {
     if (!pathRef?.current) return
@@ -42,14 +67,13 @@ const Worm = (): ReactElement => {
 
   const setCanvasRef = useCallback(node => {
     if (node !== null) {
-      console.log('node', node)
-      console.log('node', node.width)
+      canvasRef.current = node
       Paper.setup(node)
       pathRef.current = new Path({
         strokeColor: {
           gradient: {
             stops: [
-              '#FF6194',
+              '#F8E5EF',
               '#F9ABCE',
             ]
           },

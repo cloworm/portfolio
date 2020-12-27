@@ -1,15 +1,29 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useCallback, useState } from 'react'
 
 import Projects from './projects'
+import Shape from './shape'
 import Worm from './worm'
 
+interface Colors {
+  light: string
+  dark: string
+}
+
 const App = (): ReactElement => {
+  const [colors, setColors] = useState<Colors>({
+    light: '#F8E5EF',
+    dark: '#F9ABCE'
+  })
+
+  const handleShapeHover = useCallback(({ light, dark }: Colors): void => {
+    setColors({ light, dark })
+  }, [])
 
   return (
     <div className="bg-theme_ghostWhite">
       <div className="relative">
         <div>
-          <Worm />
+          <Worm light={colors.light} dark={colors.dark} />
         </div>
         <div className="flex flex-col bg-theme_ghostWhite absolute bottom-0 left-0 right-0 flex flex-row items-center justify-center z-10 pt-14 clip-ellipse">
           <p className="font-light text-base tracking-wider">PROJECTS</p>
@@ -20,8 +34,17 @@ const App = (): ReactElement => {
           </div>
         </div>
 
-        <header className="absolute top-0 left-0 right-0 min-h-screen flex flex-col justify-center items-center text-center">
-          <div>
+        <header className="absolute top-0 left-0 right-0 pl-40 pr-40 min-h-screen flex flex-col justify-center items-center text-center">
+          <div className="relative">
+            <div className="absolute top-16 -right-10" onMouseEnter={() => handleShapeHover({ light: '#E9E7FD', dark: '#AC70EA' })}>
+              <Shape />
+            </div>
+            <div className="absolute top-24 right-12" onMouseEnter={() => handleShapeHover({ light: '#78EED0', dark: '#59AAB9' })}>
+              <Shape color="green" />
+            </div>
+            <div className="absolute top-32 -right-5" onMouseEnter={() => handleShapeHover({ light: '#F8E5EF', dark: '#F9ABCE' })}>
+              <Shape color="pink" />
+            </div>
             <h1 className="text-3xl pb-1 text-white">Hi, I&apos;m Chloe Echikson</h1>
             <div className="text-left pb-1">
               <a className="transition-all text-white hover:text-theme_aquamarine" href="https://www.linkedin.com/in/chloeechikson" aria-label="linkedin" target="_blank" rel="noopener noreferrer">

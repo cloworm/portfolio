@@ -7,11 +7,19 @@ interface Props {
 
 const Shape: FunctionComponent<Props> = ({ color }) => {
   return (
-    <motion.div
-      animate={{  }}
-      transition={{}}
-      className={`h-24 w-24 rounded-full opacity-70 bg-theme_oceanBlue ${color ? 'radial-gradient-' + color : 'radial-gradient-purple'}`}
-    />
+    <motion.div whileHover={{
+      scale: 1.3,
+      opacity: 0,
+      transition: { ease: 'easeOut', duration: 0.15 }
+    }}>
+      <motion.div
+        className={`h-24 w-24 rounded-full bg-theme_oceanBlue ${color ? 'radial-gradient-' + color : 'radial-gradient-purple'}`}
+        animate={{
+          translateY: -15,
+        }}
+        transition={{ ease: [0.445, 0.05, 0.55, 0.95], repeat: Infinity, repeatType: 'reverse', duration: 1 }}
+      />
+    </motion.div>
   )
 }
 
