@@ -51,7 +51,7 @@ module.exports = {
           }
         },
         '.clip-ellipse': {
-          clipPath: 'ellipse(53% 100% at 50% 129%)'
+          clipPath: 'ellipse(55% 124% at 50% 150%)'
         }
       }
 
