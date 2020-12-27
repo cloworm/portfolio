@@ -7,10 +7,19 @@ interface Props {
 
 const Shape: FunctionComponent<Props> = ({ color }) => {
   return (
-    <motion.div whileHover={{
+    <motion.div className="relative z-auto" whileHover={{
       scale: 1.3,
+      // zIndex: -1,
       opacity: 0,
-      transition: { ease: 'easeOut', duration: 0.15 }
+      transition: { ease: 'easeOut', duration: 0.15,
+        // zIndex: { delay: 0.15, duration: 0 }
+      },
+      transitionEnd: {
+        scale: 1
+      }
+      // transitionEnd: {
+      //   zIndex: -1
+      // }
     }}>
       <motion.div
         className={`h-24 w-24 rounded-full bg-theme_oceanBlue ${color ? 'radial-gradient-' + color : 'radial-gradient-purple'}`}

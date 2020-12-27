@@ -6,10 +6,22 @@ const Projects = (): ReactElement => {
   let flipped = true
   return (
     <div id="projects" className="flex justify-center">
-      <div className="px-4 md:px-10 lg:px-20 xl:w-3/5 2xl:w-1/2 py-20">
+      <div className="relative px-6 md:px-10 lg:px-20 xl:w-3/5 2xl:w-1/2 py-20">
         <h2 className="text-3xl font-extralight tracking-widest pb-12 text-center">
           PROJECT SHOWCASE
         </h2>
+
+        {/* <div
+          className="h-20 w-20 bg-theme_frenchPink bg-opacity-50 rounded-full"
+        />
+
+        <div
+          className="h-20 w-20 bg-theme_aquamarine bg-opacity-50"
+        />
+
+        <div
+          className="w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-b-8 border-b-theme_mediumPurple"
+        /> */}
 
         <Card
           year={2020}

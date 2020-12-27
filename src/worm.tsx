@@ -8,7 +8,7 @@ interface Props {
   dark: string
 }
 
-const Worm: FunctionComponent<Props> = ({ light = '#F8E5EF', dark = '#F9ABCE' }) => {
+const Worm: FunctionComponent<Props> = ({ light = '#F8E5EF', dark = '#FF6194' }) => {
   const isMounted = useIsMounted()
   // const pathRef = useRef<InstanceType<typeof Path>>()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -74,7 +74,7 @@ const Worm: FunctionComponent<Props> = ({ light = '#F8E5EF', dark = '#F9ABCE' })
           gradient: {
             stops: [
               '#F8E5EF',
-              '#F9ABCE',
+              '#FF6194',
             ]
           },
           origin: [0, node.width],

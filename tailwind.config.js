@@ -9,6 +9,9 @@ module.exports = {
       'sans': ['Poppins', 'sans-serif']
     },
     extend: {
+      backgroundImage: {
+        pattern: 'url(\'https://user-images.githubusercontent.com/5566310/103178500-54f7aa00-4851-11eb-955c-261b9f276e7c.png\')'
+      },
       colors: {
         theme_indigo: '#4d49f3',
         theme_yellow: '#fed230',
@@ -62,6 +65,12 @@ module.exports = {
         '.radial-gradient-green': {
           background: 'radial-gradient(farthest-corner at 30px 30px, #78EED0 0%, #59AAB9 100%)'
         },
+        '.neumorphic': {
+          boxShadow: '20px 20px 60px #ccc, -20px -20px 60px #ffffff'
+        },
+        '.neumorphic-hover': {
+          boxShadow: '10px 10px 40px #ff9cbc, -10px -10px 40px #ffffff'
+        }
       }
 
       addUtilities(newUtilities, {

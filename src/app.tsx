@@ -42,7 +42,7 @@ const App = (): ReactElement => {
             <div className="absolute top-24 right-12" onMouseEnter={() => handleShapeHover({ light: '#78EED0', dark: '#59AAB9' })}>
               <Shape color="green" />
             </div>
-            <div className="absolute top-32 -right-5" onMouseEnter={() => handleShapeHover({ light: '#F8E5EF', dark: '#F9ABCE' })}>
+            <div className="absolute top-32 -right-5" onMouseEnter={() => handleShapeHover({ light: '#F8E5EF', dark: '#FF6194' })}>
               <Shape color="pink" />
             </div>
             <h1 className="text-3xl pb-1 text-white">Hi, I&apos;m Chloe Echikson</h1>
