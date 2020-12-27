@@ -52,7 +52,16 @@ module.exports = {
         },
         '.clip-ellipse': {
           clipPath: 'ellipse(55% 124% at 50% 150%)'
-        }
+        },
+        '.radial-gradient-purple': {
+          background: 'radial-gradient(farthest-corner at 30px 30px, #E9E7FD 0%, #AC70EA 100%)'
+        },
+        '.radial-gradient-pink': {
+          background: 'radial-gradient(farthest-corner at 30px 30px, #F9ABCE 0%, #FF6194 100%)'
+        },
+        '.radial-gradient-green': {
+          background: 'radial-gradient(farthest-corner at 30px 30px, #78EED0 0%, #59AAB9 100%)'
+        },
       }
 
       addUtilities(newUtilities, {

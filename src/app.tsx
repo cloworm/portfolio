@@ -4,6 +4,7 @@ import Projects from './projects'
 import Worm from './worm'
 
 const App = (): ReactElement => {
+
   return (
     <div className="bg-theme_ghostWhite">
       <div className="relative">

@@ -64,13 +64,13 @@ const Card = ({
         relative
         rounded-xl
         group
-        shadow
         transition-all
         text-left
         lg:grid-cols-2
         mb-10
         transform
       `}
+      // shadow
       // cursor-pointer
       // ${isExpanded ? '' : 'hover:scale-105 hover:border-transparent hover:shadow-xl' }
       // ${isExpanded ? 'scale-110 shadow-xl' : '' }

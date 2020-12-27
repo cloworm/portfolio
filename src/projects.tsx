@@ -1,12 +1,13 @@
 import React, { ReactElement } from 'react'
 
 import Card from './card'
+import Shape from './shape'
 
 const Projects = (): ReactElement => {
   let flipped = true
   return (
     <div id="projects" className="flex justify-center">
-      <div className="px-4 md:px-10 lg:px-20 xl:w-3/5 2xl:w-1/2 py-20">
+      <div className="relative px-4 md:px-10 lg:px-20 xl:w-3/5 2xl:w-1/2 py-20">
         <h2 className="text-3xl font-extralight tracking-widest pb-12 text-center">
           PROJECT SHOWCASE
         </h2>
