@@ -16,7 +16,7 @@ const ButtonLink = ({ children, url }: Props): ReactElement => {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="border border-gray-500 hover:bg-theme_pink rounded font-medium text-sm italic text-gray-900 align-bottom px-2 py-0.5"
+      className="bg-gradient-to-r from-theme_frenchPink to-theme_carnationPink rounded-full font-semiBold text-white px-6 py-2"
     >
       {children}
     </a>

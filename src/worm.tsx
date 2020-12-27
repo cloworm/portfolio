@@ -1,5 +1,5 @@
 import React, { ReactElement, useCallback, useEffect, useRef } from 'react'
-import Paper, { Path, Point, Color } from 'paper'
+import Paper, { Path, Point, Color, Gradient } from 'paper'
 
 import useIsMounted from './hooks/useIsMounted'
 import getRandomColor from './lib/getRandomColor'
@@ -16,19 +16,17 @@ const Worm = (): ReactElement => {
   }, [])
 
   const draw = useCallback(() => {
-    // TO DO dont destructure
-    const { current } = pathRef
-    if (!current) return
+    if (!pathRef?.current) return
 
     const start = Paper.view.center.divide(new Point(10, 1))
 
     for (let i = 0; i < points; i++) {
-      current.add(start.add(new Point(i * length, 0)))
+      pathRef.current.add(start.add(new Point(i * length, 0)))
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Paper.view.onMouseMove = (event: any) => {
-      if (!pathRef.current) return
+      if (!pathRef?.current) return
 
       pathRef.current.firstSegment.point = event.point
       for (let i = 0; i < points - 1; i++) {
@@ -40,26 +38,24 @@ const Worm = (): ReactElement => {
       }
       pathRef.current.smooth({ type: 'continuous' })
     }
-
-    Paper.view.onMouseDown = () => {
-      if (!pathRef.current) return
-      pathRef.current.fullySelected = true
-      pathRef.current.strokeColor = new Color('#F9ABCE')
-      // pathRef.current.strokeColor = new Color(getRandomColor())
-    }
-
-    Paper.view.onMouseUp = () => {
-      if (!pathRef.current) return
-      pathRef.current.fullySelected = false
-    }
   }, [])
 
   const setCanvasRef = useCallback(node => {
     if (node !== null) {
+      console.log('node', node)
+      console.log('node', node.width)
       Paper.setup(node)
       pathRef.current = new Path({
-        // strokeColor: getRandomColor(),
-        strokeColor: new Color('#F9ABCE'),
+        strokeColor: {
+          gradient: {
+            stops: [
+              '#FF6194',
+              '#F9ABCE',
+            ]
+          },
+          origin: [0, node.width],
+          destination: [0, 0]
+        },
         strokeWidth: 20,
         strokeCap: 'round'
       })

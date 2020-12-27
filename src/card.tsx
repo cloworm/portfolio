@@ -21,8 +21,9 @@ const Tags = ({ tags }: { tags: string[] }): ReactElement => {
     {
       tags.map((tag, idx) => {
         return (
-          <div key={idx} className="inline-block">
-            <Chip>{tag}</Chip>
+          <div key={idx} className="inline-block text-sm text-gray-400">
+            {tag}&nbsp;{idx < tags.length - 1 ? <span>&middot;&nbsp;</span> : ''}
+            {/* <Chip>{tag}</Chip> &middot; */}
           </div>
         )
       })
@@ -80,20 +81,21 @@ const Card = ({
           {year}
         </p>
         <div className="pb-3">
-          <div className="float-right space-x-2">
-            <ButtonLink url={repo}>Source</ButtonLink>
-            <ButtonLink url={link}>Demo</ButtonLink>
-          </div>
           <p className="text-2xl font-bold tracking-wide align-center">
             {name}
           </p>
         </div>
 
-        <p className="lg:pb-10 text-sm">
+        <p className="lg:pb-4">
           {description}
         </p>
         <div className="hidden lg:block">
-          <Tags tags={tags} />
+          <div className="pb-3">
+            <Tags tags={tags} />
+          </div>
+          <div>
+            <ButtonLink url={link}>Launch Demo</ButtonLink>
+          </div>
         </div>
 
       </div>
@@ -111,7 +113,12 @@ const Card = ({
         `}
       />
       <div className="lg:hidden bg-white rounded-b-xl px-6 py-6">
-        <Tags tags={tags} />
+        <div>
+          <Tags tags={tags} />
+        </div>
+        <div>
+          <ButtonLink url={link}>Launch Demo</ButtonLink>
+        </div>
       </div>
     </div>
   )
