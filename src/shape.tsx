@@ -1,11 +1,11 @@
-import { FunctionComponent } from 'react'
+import { ReactElement } from 'react'
 import { motion } from 'framer-motion'
 
 interface Props {
   color?: string
 }
 
-const Shape: FunctionComponent<Props> = ({ color }) => {
+const Shape = ({ color }: Props): ReactElement => {
   return (
     <motion.div className="relative inline-block z-auto"
       whileHover={{
