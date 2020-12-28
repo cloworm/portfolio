@@ -7,7 +7,7 @@ interface Props {
 
 const Shape: FunctionComponent<Props> = ({ color }) => {
   return (
-    <motion.div className="relative z-auto"
+    <motion.div className="relative inline-block z-auto"
       whileHover={{
         scale: 1.3,
         opacity: 0,

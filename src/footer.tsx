@@ -11,14 +11,14 @@ const Footer: FunctionComponent = () => {
         </span>
       </a>
 
-      <div className="absolute -top-10 left-10 lg:-top-8 lg:left-10">
+      <div className="inline-block absolute -top-10 left-10 lg:-top-16 lg:left-24">
         <Shape />
       </div>
-      <div className="absolute -top-16 left-28 lg:top-2 lg:left-28">
-        <Shape color="green" />
-      </div>
-      <div className="absolute -top-28 left-16 lg:-top-2 lg:right-10">
+      <div className="inline-block absolute -top-28 left-16 lg:-top-4 lg:left-8">
         <Shape color="pink" />
+      </div>
+      <div className="inline-block absolute -top-16 left-28 lg:top-1 lg:left-28">
+        <Shape color="green" />
       </div>
     </div>
   )
