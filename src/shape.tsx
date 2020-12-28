@@ -1,11 +1,11 @@
-import { ReactElement } from 'react'
+import { FunctionComponent } from 'react'
 import { motion } from 'framer-motion'
 
 interface Props {
   color?: string
 }
 
-const Shape = ({ color }: Props): ReactElement => {
+const Shape: FunctionComponent<Props> = ({ color }) => {
   return (
     <motion.div className="relative inline-block z-auto"
       whileHover={{
@@ -28,7 +28,7 @@ const Shape = ({ color }: Props): ReactElement => {
       }}
     >
       <motion.div
-        className={`h-24 w-24 rounded-full bg-theme_oceanBlue ${color ? 'radial-gradient-' + color : 'radial-gradient-purple'}`}
+        className={`h-24 w-24 rounded-full bg-theme_oceanBlue ${color === 'green' ? 'radial-gradient-green' : (color === 'pink' ? 'radial-gradient-pink' : 'radial-gradient-purple')}`}
         animate={{
           translateY: -15,
         }}
