@@ -1,10 +1,10 @@
-import React, { ReactElement, useCallback, useState } from 'react'
+import React, { FunctionComponent } from 'react'
 import Footer from './footer'
 import Header from './header'
 
 import Projects from './projects'
 
-const App = (): ReactElement => {
+const App: FunctionComponent = () => {
   return (
     <div className="bg-theme_ghostWhite">
       <Header />

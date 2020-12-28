@@ -1,8 +1,6 @@
-import React, { ReactElement, useCallback, useMemo } from 'react'
+import React, { FunctionComponent, useCallback } from 'react'
 
-import Chip from './chip'
 import ButtonLink from './button-link'
-import useExpandedCard from './hooks/useExpandedCard'
 
 interface Props {
   year: number
@@ -16,14 +14,13 @@ interface Props {
   tags: string[],
 }
 
-const Tags = ({ tags }: { tags: string[] }): ReactElement => {
+const Tags = ({ tags }: { tags: string[] }) => {
   return <>
     {
       tags.map((tag, idx) => {
         return (
           <div key={idx} className="inline-block text-sm text-gray-400">
             {tag}&nbsp;{idx < tags.length - 1 ? <span>&middot;&nbsp;</span> : ''}
-            {/* <Chip>{tag}</Chip> &middot; */}
           </div>
         )
       })
@@ -31,7 +28,7 @@ const Tags = ({ tags }: { tags: string[] }): ReactElement => {
   </>
 }
 
-const Card = ({
+const Card: FunctionComponent<Props> = ({
   year,
   name,
   description,
@@ -41,21 +38,7 @@ const Card = ({
   bgPosition,
   flipped,
   tags,
-}: Props): ReactElement => {
-  // const [expandedCard, setExpandedCard] = useExpandedCard()
-  const uriFriendlyName = useMemo<string>(() => encodeURIComponent(name), [name])
-  // const isExpanded = useMemo<boolean>(() => expandedCard === uriFriendlyName, [expandedCard, uriFriendlyName])
-  // const handleClick = useCallback(() => {
-  //   setExpandedCard((prevExpandedCard) => {
-  //     const nextExpandedCard = prevExpandedCard === uriFriendlyName ? null : uriFriendlyName
-  //     if (nextExpandedCard) {
-  //       // TODO: Smooth scroll
-  //       window.location.hash = uriFriendlyName
-  //     }
-  //     return nextExpandedCard
-  //   })
-  // }, [uriFriendlyName, setExpandedCard])
-
+}) => {
   const handleCardClick = useCallback(() => {
     window.open(link, '_blank', 'noopener noreferrer')
   }, [link])
@@ -66,7 +49,6 @@ const Card = ({
 
   return (
     <div
-      id={uriFriendlyName}
       onClick={handleCardClick}
       role="button"
       aria-label="Live Demo"
@@ -86,11 +68,6 @@ const Card = ({
         bg-white
         cursor-pointer
       `}
-      // shadow-lg
-      // shadow
-      // cursor-pointer
-      // ${isExpanded ? '' : 'hover:scale-105 hover:border-transparent hover:shadow-xl' }
-      // ${isExpanded ? 'scale-110 shadow-xl' : '' }
     >
       <div className={`${flipped ? 'order-first lg:order-1 rounded-t-3xl lg:rounded-t-none lg:rounded-r-3xl' : 'order-first rounded-t-3xl lg:rounded-t-none lg:rounded-l-3xl'} px-6 py-6 lg:px-8 lg:py-8 bg-white`}>
         <p className="text-sm font-semibold text-theme_carnationPink">

@@ -35,13 +35,13 @@ const Header: FunctionComponent = () => {
 
       <header className="absolute top-0 left-0 right-0 lg:px-40 min-h-screen flex flex-col justify-center items-center text-center">
         <div className="relative">
-          <div className="absolute -top-72 lg:top-16 -right-10" onMouseEnter={() => handleShapeHover({ light: '#E9E7FD', dark: '#AC70EA' })}>
+          <div className="absolute -top-72 lg:top-16 -right-3 lg:-right-10" onMouseEnter={() => handleShapeHover({ light: '#E9E7FD', dark: '#AC70EA' })}>
             <Shape />
           </div>
-          <div className="absolute -top-64 lg:top-24 right-12" onMouseEnter={() => handleShapeHover({ light: '#78EED0', dark: '#59AAB9' })}>
+          <div className="absolute -top-60 lg:top-24 right-12" onMouseEnter={() => handleShapeHover({ light: '#78EED0', dark: '#59AAB9' })}>
             <Shape color="green" />
           </div>
-          <div className="absolute -top-60 lg:top-32 -right-5" onMouseEnter={() => handleShapeHover({ light: '#F8E5EF', dark: '#FF6194' })}>
+          <div className="absolute -top-56 lg:top-32 -right-5" onMouseEnter={() => handleShapeHover({ light: '#F8E5EF', dark: '#FF6194' })}>
             <Shape color="pink" />
           </div>
           <h1 className="text-3xl pb-1 text-white">Hi, I&apos;m Chloe Echikson</h1>

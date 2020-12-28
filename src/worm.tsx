@@ -10,7 +10,6 @@ interface Props {
 
 const Worm: FunctionComponent<Props> = ({ light = '#F8E5EF', dark = '#FF6194' }) => {
   const isMounted = useIsMounted()
-  // const pathRef = useRef<InstanceType<typeof Path>>()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const pathRef = useRef<any>()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
