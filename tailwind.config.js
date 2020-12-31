@@ -70,12 +70,6 @@ module.exports = {
         },
         '.neumorphic-hover': {
           boxShadow: '10px 10px 40px #ff9cbc, -10px -10px 40px #ffffff'
-        },
-        '.touch-none': {
-          touchAction: 'none'
-        },
-        '.touch-auto': {
-          touchAction: 'auto'
         }
       }
 
